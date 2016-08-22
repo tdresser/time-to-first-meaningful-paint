@@ -1,6 +1,6 @@
 # time-to-first-meaningful-paint
 
-First Meaningful Paint is the time when page's primary content appeared on the screen.
+First Meaningful Paint is the time when a page's primary content appeared on the screen.
 
 Which content is primary is subjective, and knowing when content has appeared on the screen precisely is impossible on user's devices.
 We propose an approximation of First Meaningful Paint based on signals from page layout.
@@ -31,6 +31,6 @@ window.onLoad = () => {
 }
 ```
 
-#TODO#
+## TODO ##
 * Can we use DOM nodes instead of layout nodes?
 * Should we measure until the start of paint, or the end?
