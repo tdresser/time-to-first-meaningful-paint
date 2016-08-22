@@ -1,6 +1,6 @@
-# time-to-first-meaningful-paint
+# PerformanceNavigationTiming firstMeaningfulPaint
 
-First Meaningful Paint is the time when a page's primary content appeared on the screen.
+First Meaningful Paint is the time when a page's primary content has appeared on the screen.
 
 Which content is primary is subjective, and knowing when content has appeared on the screen precisely is impossible on user's devices.
 We propose an approximation of First Meaningful Paint based on signals from page layout.
