@@ -6,16 +6,19 @@ Which content is primary is subjective, and knowing when content has appeared on
 We propose an approximation of First Meaningful Paint based on signals from page layout.
 
 ## Computation ##
-TODO - figure out if we want the start time or the end time of the paint.
 We approximate First Meaningful Paint as the start time of the paint following the layout with the highest "Layout Significance".
 
 ### Layout Significance ###
 
-TODO - we currently use layout objects, but should probably use DOM nodes.
-  
-`layout significance = number of new DOM nodes since last paint / max(1, page height / screen height)`
+For each layout, we compute the `layout significance`.
+```
+if a textual web font is loading:
+  layout significance = 0
+else:
+  layout significance = number of new DOM nodes since last layout / max(1, page height / screen height)
+```
 
-TODO - incorporate web fonts here.
+To determine if a web font is textual, we use a heuristic. If a web font has more than 200 characters, we consider it textual.
 
 ## Web API ##
 First Meaningful Paint will be added to the [PerformanceNavigationTiming](https://www.w3.org/TR/navigation-timing-2/#sec-PerformanceNavigationTiming) interface in the [Navigation Timing API](https://www.w3.org/TR/navigation-timing-2/).
@@ -27,3 +30,7 @@ window.onLoad = () => {
   console.log("Time to First Meaningful Paint: " + first_meaningful_paint);
 }
 ```
+
+#TODO#
+* Can we use DOM nodes instead of layout nodes?
+* Should we measure until the start of paint, or the end?
