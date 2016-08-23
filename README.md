@@ -13,9 +13,9 @@ We approximate First Meaningful Paint as the start time of the paint following t
 For each layout, we compute the `layout significance`.
 ```
 if a textual web font is loading:
-  layout significance = 0
+  layout significance = layout significance of last layout when no textual webfonts were loading
 else:
-  layout significance = number of new DOM nodes since last layout / max(1, page height / screen height)
+  layout significance = number of new [CSS boxes](https://www.w3.org/TR/css3-box/) since last layout / max(1, page height / screen height)
 ```
 
 To determine if a web font is textual, we use a heuristic. If a web font has more than 200 characters, we consider it textual.
