@@ -2,7 +2,7 @@
 
 Web developers require more information on page load performance in the wild.
 
-PerformanceNavigationTiming's firstMeaningfulPaint attribute will return a DOMHighResTimeStamp with a time value approximating the time when a page's primary content has been displayed on the screen.
+PerformanceNavigationTiming's `firstMeaningfulPaint` attribute will return a `DOMHighResTimeStamp` with a time value approximating the time when a page's primary content has been displayed on the screen.
 
 Which content is primary is subjective, and knowing when content has appeared on the screen precisely is impossible on user's devices.
 
