@@ -8,7 +8,7 @@ Which content is primary is subjective, and knowing when content has appeared on
 
 In Chrome, we're experimenting with an approximation of First Meaningful Paint based on signals from page layout. We will not spec this particularly strategy, since it relies on browser implementation details.
 
-## Using `firstMeaningfulPaint` ##
+## Using `firstMeaningfulPaint`
 First Meaningful Paint will be added to the [PerformanceNavigationTiming](https://www.w3.org/TR/navigation-timing-2/#sec-PerformanceNavigationTiming) interface in the [Navigation Timing API](https://www.w3.org/TR/navigation-timing-2/).
 
 ```javascript
@@ -18,11 +18,11 @@ window.onLoad = () => {
 }
 ```
 
-## Computation ##
+## Computation
 
 We approximate First Meaningful Paint as the end time of the paint following the layout with the highest "Layout Significance".
 
-### Layout Significance ###
+### Layout Significance
 
 For each layout, we compute the `layout significance`.
 ```
@@ -40,5 +40,5 @@ To determine if a web font is textual, we use a heuristic. If a web font has mor
 
 Including page height / screen height in the calculation enables us to decrease the weight of layouts which are likely only adding content below the fold.
 
-## TODO ##
+## TODO
 * Determine how much deviation in the implementations of `firstMeaningfulPaint` is acceptable.
