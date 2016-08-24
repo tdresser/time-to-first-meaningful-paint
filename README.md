@@ -2,11 +2,21 @@
 
 Web developers require more information on page load performance in the wild.
 
-PerformanceNavigationTiming's `firstMeaningfulPaint` attribute will return a `DOMHighResTimeStamp` with a time value approximating the time when a page's primary content has been displayed on the screen.
+`PerformanceNavigationTiming`'s `firstMeaningfulPaint` attribute will return a `DOMHighResTimeStamp` with a time value approximating the time when a page's primary content has been displayed on the screen.
 
-Which content is primary is subjective, and knowing when content has appeared on the screen precisely is impossible on user's devices.
+Which content is primary is subjective, and knowing when content has appeared on the screen precisely is impossible on user's devices. Approximations of `firstMeaningfulPaint` may differ between browser implementations.
 
 In Chrome, we're experimenting with an approximation of First Meaningful Paint based on signals from page layout. We will not spec this particularly strategy, since it relies on browser implementation details.
+
+## Using firstMeaningfulPaint ##
+First Meaningful Paint will be added to the [PerformanceNavigationTiming](https://www.w3.org/TR/navigation-timing-2/#sec-PerformanceNavigationTiming) interface in the [Navigation Timing API](https://www.w3.org/TR/navigation-timing-2/).
+
+```javascript
+window.onLoad = () => { 
+  var navigationTiming = performance.getEntriesByType("navigation")[0];
+  console.log("Time to First Meaningful Paint: " + navigationTiming.firstMeaningfulPaint);
+}
+```
 
 ## Computation ##
 
@@ -29,14 +39,3 @@ else:
 To determine if a web font is textual, we use a heuristic. If a web font has more than 200 characters, we consider it textual.
 
 Including page height / screen height in the calculation enables us to decrease the weight of layouts which are likely only adding content below the fold.
-
-## Web API ##
-First Meaningful Paint will be added to the [PerformanceNavigationTiming](https://www.w3.org/TR/navigation-timing-2/#sec-PerformanceNavigationTiming) interface in the [Navigation Timing API](https://www.w3.org/TR/navigation-timing-2/).
-
-```javascript
-window.onLoad = () => { 
-  var navigationTiming = performance.getEntriesByType("navigation")[0];
-  var first_meaningful_paint = navigationTiming.firstMeaningfulPaint;
-  console.log("Time to First Meaningful Paint: " + first_meaningful_paint);
-}
-```
