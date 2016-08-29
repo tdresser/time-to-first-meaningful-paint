@@ -12,7 +12,7 @@ In Chrome, we're experimenting with an approximation of First Meaningful Paint b
 First Meaningful Paint will be added to the [PerformanceNavigationTiming](https://www.w3.org/TR/navigation-timing-2/#sec-PerformanceNavigationTiming) interface in the [Navigation Timing API](https://www.w3.org/TR/navigation-timing-2/).
 
 ```javascript
-window.onLoad = () => { 
+window.TODO = () => { 
   var navigationTiming = performance.getEntriesByType("navigation")[0];
   console.log("Time to First Meaningful Paint: " + navigationTiming.firstMeaningfulPaint);
 }
