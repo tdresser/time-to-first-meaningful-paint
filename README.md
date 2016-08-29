@@ -2,7 +2,7 @@
 
 Web developers require more information on page load performance in the wild.
 
-`PerformanceNavigationTiming`'s `firstMeaningfulPaint` attribute will return a `DOMHighResTimeStamp` with a time value approximating the time when a page's primary content has been displayed on the screen.
+`PerformanceNavigationTiming`'s `firstMeaningfulPaint` attribute will return a `DOMHighResTimeStamp` with a time value approximating the time when a page's primary content has been displayed on the screen. `firstMeaningfulPaint` will be undefined until page load is complete. (TODO - when is page load complete?)
 
 Which content is primary is subjective, and knowing when content has appeared on the screen precisely is impossible on user's devices. Approximations of `firstMeaningfulPaint` may differ between browser implementations.
 
@@ -42,3 +42,4 @@ Including page height / screen height in the calculation enables us to decrease 
 
 ## TODO
 * Determine how much deviation in the implementations of `firstMeaningfulPaint` is acceptable.
+* Define when page load is complete.
